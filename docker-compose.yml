@@ -8,7 +8,8 @@ services:
       POSTGRES_DB: postaladdress
       TZ: Asia/Tokyo
     ports:
-      - "5432:5432"
+      # 検証用のため、同一ホストからのみ接続を許可する
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - ./initdb:/docker-entrypoint-initdb.d

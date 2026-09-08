@@ -101,6 +101,9 @@ docker compose up -d
 docker compose logs postgres
 ```
 
+CSV が置かれていないと取り込みに失敗し、コンテナは停止します。その場合は CSV を配置したうえで `docker compose down -v` してから起動し直してください。<br>
+（ボリュームを消さずに起動し直すと、**テーブルだけがある 0 件の状態で何事もなく起動してしまいます。**）
+
 ### 4. 接続する
 
 ```
@@ -166,3 +169,13 @@ docker compose up -d
 | データベース | `postaladdress` |
 | ユーザー | `postgres` |
 | パスワード | `postgres` |
+
+検証用の簡易なパスワードのため、ポートは `127.0.0.1` にのみ公開しています。<br>
+他のマシンから接続したい場合は `docker-compose.yml` の `ports` を変更したうえで、パスワードも変更してください。
+
+## ライセンス
+
+このリポジトリのコード（`docker-compose.yml` および `initdb/` の SQL）は [MIT License](LICENSE) です。
+
+[郵便住所.jp](https://postaladdress.jp/) の CSV データはこのライセンスの対象外です。<br>
+データの利用条件は配布元の利用規約に従ってください。
