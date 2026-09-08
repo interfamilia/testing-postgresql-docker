@@ -123,7 +123,7 @@ postaladdress=# SELECT count(*) FROM municipality;
 postaladdress=# SELECT count(*) FROM postal_address;
  count
 --------
- 122643
+ 122653
 (1 row)
 ```
 
